@@ -6,15 +6,6 @@ SELECT
 	,MC.[CustomerName]
 	,PC.[CustomerName] [ParentCompany]
 	,CC.[CustomerCategoryName] [CustomerCategory]
-	,MC.[DeliveryCityID]
-	,MC.[PostalCityID]
-	,MC.[DeliveryAddressLine1]
-	,MC.[DeliveryAddressLine2]
-	,MC.[DeliveryPostalCode]
-	--,MC.[DeliveryLocation]
-	,MC.[PostalAddressLine1]
-	,MC.[PostalAddressLine2]
-	,MC.[PostalPostalCode]
 FROM Sales.Customers MC
 JOIN Sales.Customers PC
 	ON MC.BillToCustomerID = PC.CustomerID
@@ -115,8 +106,7 @@ JOIN Purchasing.SupplierCategories SC
 /*####
 	Querry for extracting purchase data -> factPurchase
 ####*/
-SELECT * FROM Purchasing.PurchaseOrderLines
-SELECT * FROM Purchasing.SupplierTransactions
+
 SELECT
 	ST.SupplierTransactionID 'PurchaseID',
 	ST.SupplierID,

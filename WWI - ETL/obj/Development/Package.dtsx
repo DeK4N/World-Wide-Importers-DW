@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/25/2022 8:12:16 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-25Q435G"
+  DTS:CreatorName="DESKTOP-25Q435G\aMati"
+  DTS:DTSID="{EB0D5EAF-50DD-4803-A00A-3D71F2FCAED6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{B99AADD8-52B9-4945-8CD8-F0557358E35F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B5CA0E0C-B8FA-4387-B4B9-BCC26416F2C2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7643CC8C-F760-4B20-BB79-1A7EE4B46AB8}"
+          SQLTask:SqlStatementSource="SELECT&#xA;&#x9;MC.[CustomerID]&#xA;&#x9;,MC.[CustomerName]&#xA;&#x9;,PC.[CustomerName] [ParentCompany]&#xA;&#x9;,CC.[CustomerCategoryName] [CustomerCategory]&#xA;&#x9;,MC.[DeliveryCityID]&#xA;&#x9;,MC.[PostalCityID]&#xA;&#x9;,MC.[DeliveryAddressLine1]&#xA;&#x9;,MC.[DeliveryAddressLine2]&#xA;&#x9;,MC.[DeliveryPostalCode]&#xA;&#x9;--,MC.[DeliveryLocation]&#xA;&#x9;,MC.[PostalAddressLine1]&#xA;&#x9;,MC.[PostalAddressLine2]&#xA;&#x9;,MC.[PostalPostalCode]&#xA;FROM Sales.Customers MC&#xA;JOIN Sales.Customers PC&#xA;&#x9;ON MC.BillToCustomerID = PC.CustomerID&#xA;JOIN Sales.CustomerCategories CC&#xA;&#x9;ON MC.CustomerCategoryID = CC.CustomerCategoryID" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="387.499984602134,273.000002169609" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
