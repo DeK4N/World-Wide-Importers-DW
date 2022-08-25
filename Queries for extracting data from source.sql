@@ -96,3 +96,41 @@ JOIN Warehouse.PackageTypes PT
 	ON SI.UnitPackageID = PT.PackageTypeID
 	JOIN Warehouse.PackageTypes PTO
 	ON SI.OuterPackageID = PTO.PackageTypeID
+
+
+/*####
+	Querry for extracting suppliers data -> dimSuppliers
+####*/
+
+SELECT
+	S.SupplierID,
+	S.SupplierName,
+	SC.SupplierCategoryName,
+	S.PaymentDays
+FROM Purchasing.Suppliers S
+JOIN Purchasing.SupplierCategories SC
+	ON S.SupplierCategoryID = SC.SupplierCategoryID
+
+
+/*####
+	Querry for extracting purchase data -> factPurchase
+####*/
+SELECT * FROM Purchasing.PurchaseOrderLines
+SELECT * FROM Purchasing.SupplierTransactions
+SELECT
+	ST.SupplierTransactionID 'PurchaseID',
+	ST.SupplierID,
+	PO.OrderDate 'PurchaseDate',
+	PO.ExpectedDeliveryDate,
+	POL.StockItemID,
+	POL.OrderedOuters 'QuantityOrdered',
+	POL.ReceivedOuters 'QuantityReceived',
+	ST.AmountExcludingTax,
+	ST.TaxAmount,
+	ExpectedUnitPricePerOuter,
+	PO.IsOrderFinalized
+FROM Purchasing.SupplierTransactions ST
+JOIN Purchasing.PurchaseOrders PO
+	ON ST.PurchaseOrderID = PO.PurchaseOrderID
+JOIN Purchasing.PurchaseOrderLines POL
+	ON PO.PurchaseOrderID = POL.PurchaseOrderID
