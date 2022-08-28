@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="localhost.WorldWideImporters"
-  DTS:DTSID="{7643CC8C-F760-4B20-BB79-1A7EE4B46AB8}"
+  DTS:ObjectName="localhost.STAG_WWI"
+  DTS:DTSID="{24E80895-1E5B-4917-82C1-0397F7CE0B99}"
   DTS:CreationName="OLEDB">
   <DTS:PropertyExpression
-    DTS:Name="InitialCatalog">@[$Project::SourceDatabaseName]</DTS:PropertyExpression>
+    DTS:Name="InitialCatalog">@[$Project::StagDatabaseName]</DTS:PropertyExpression>
   <DTS:PropertyExpression
     DTS:Name="ServerName">@[$Project::serverName]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="Data Source=localhost;Initial Catalog=WorldWideImporterss;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      DTS:ConnectionString="Data Source=localhost;Initial Catalog=STAG_WWI;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>
