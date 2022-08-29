@@ -26,11 +26,12 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-25Q435G</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAASx64UtW1NkCVBtXwvRrQeAAAAAACAAAAAAAQZgAAAAEAACAAAAC0QO84IpwqBl6rs4Dk3KRpgg5JiJzVQk4PJUL91G/rHwAAAAAOgAAAAAIAACAAAAChXD1vO8yYZd8GDK0cgWyjuIz4n/xcLWhckPS7Q6nNSZAAAAAw+T8haOcoKYQ76ixl6VexjeirvZjw982Zx5sQ+0PI95CUacSsuiYUXaNd/7JjRkea1Z7dBfn3F4xZ/KLK3X+i1HDpgQI4twieS159vaJ6xenryl7CzTold704MVafSis9I7yobvM+2haucUQ2+nssHU8nQGqw72NPG5uHjzTFiu1Pr06CBmxfORy+wDc/bNhAAAAAntaRBNIjDNk2SyWfp0XIef0KS+C1BtagFjFxOo21woYDrVkh0w/qOHoByxvF5jwKWGwfHImFJco/P0RcS/zi6w==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAASx64UtW1NkCVBtXwvRrQeAAAAAACAAAAAAAQZgAAAAEAACAAAABFk/gzHiSBkzGJxodBEKuU2ri7n2im4ijw+0Lqj82M9QAAAAAOgAAAAAIAACAAAAC7kSSYsM75FuThhRohTU4cTPVsJDU0CmWkc4D6lrRthZAAAABmdfu+wKuWauFwtAF7Wz0+6dd600Q+sokO9iKzPKAvtSudLFS7D1gtra5Y2U4YPccFfUxWZ1pSN81N4v6wqdbARmQx7cGsZOtlG1RMOZaNNZTBqOJ2xCE3K6YkBwQdeTJ0A4exB4JiboCnKfxR/KRcdtbgod6yvAnHNrMKpPJKZKpnwTEsqpoyRC/Z0IpuondAAAAAnDoaFXNUZv63g4s4pAtYZIKc7au99z4U5b1XaRP6XnmIdZJVtc/aWeXSI47O1FWeK5StQrByz7DxczlcqP/iLw==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="Main.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Initial Load.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="Source.conmgr" />
@@ -64,7 +65,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=localhost;Initial Catalog=WorldWideImporterss;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=localhost;Initial Catalog=WorldWideImporters;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -231,21 +232,6 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost.STAG_WWI.InitialCatalog">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="CreationName">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">STAG_WWI</SSIS:Property>
-                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-              </SSIS:Properties>
-            </SSIS:Parameter>
             <SSIS:Parameter SSIS:Name="CM.localhost.STAG_WWI.Password">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
@@ -275,21 +261,6 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.localhost.STAG_WWI.ServerName">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="CreationName">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">localhost</SSIS:Property>
-                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-              </SSIS:Properties>
-            </SSIS:Parameter>
             <SSIS:Parameter SSIS:Name="CM.localhost.STAG_WWI.UserName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
@@ -312,10 +283,27 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">9</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">18</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{FDD40142-CD1E-4F8D-B9DD-B5A63D42E88B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{74119D1C-23C4-4334-9B55-21916DB3B1CA}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Initial Load.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{AE011ABA-6450-4723-B3DA-367FFF25AAFA}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{C9E0258B-429A-4221-BD25-32F4732CFF2D}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

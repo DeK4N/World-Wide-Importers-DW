@@ -61,11 +61,3 @@ SET @to_lsn   = sys.fn_cdc_get_max_lsn()
 SELECT * FROM cdc.fn_cdc_get_all_changes_Sales_Customers(@from_lsn, @to_lsn, N'all')
 GO
 
-SELECT * From Sales.Customers
-*/
-
-UPDATE Sales.Customers
-	SET CustomerName = 'Agrita Abele'
-WHERE CustomerID = 1061
-
-

@@ -5,6 +5,7 @@ IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'STAG_WWI')
 	CREATE DATABASE STAG_WWI
 GO
 
+
 USE STAG_WWI
 GO
 
@@ -16,9 +17,9 @@ GO
 
 CREATE TABLE [raw].dimCustomers (
 	CustomerID INT,
-	CustomerName VARCHAR(MAX),
-	ParentCompany VARCHAR(MAX),
-	CustomerCategory VARCHAR(MAX)
+	CustomerName NVARCHAR(MAX),
+	ParentCompany NVARCHAR(MAX),
+	CustomerCategory NVARCHAR(MAX)
 )
 
 
@@ -41,37 +42,37 @@ CREATE TABLE [raw].factSale (
 
 CREATE TABLE [raw].dimEmployee (
 	PersonID INT,
-	FullName VARCHAR(MAX),
+	FullName NVARCHAR(MAX),
 	IsSalesPerson BIT,
 )
 
 
 CREATE TABLE [raw].dimLocation (
 	LocationID INT,
-	CityName VARCHAR(MAX),
-	StateProvinceName VARCHAR(MAX),
-	SalesTerritory VARCHAR(MAX),
-	CountryName VARCHAR(MAX),
-	Continent VARCHAR(MAX),
-	Region VARCHAR(MAX),
-	Subregion VARCHAR(MAX)
+	CityName NVARCHAR(MAX),
+	StateProvinceName NVARCHAR(MAX),
+	SalesTerritory NVARCHAR(MAX),
+	CountryName NVARCHAR(MAX),
+	Continent NVARCHAR(MAX),
+	Region NVARCHAR(MAX),
+	Subregion NVARCHAR(MAX)
 )
 
 
 CREATE TABLE [raw].dimStockItem (
 	StockItemID INT,
-	StockItemName VARCHAR(MAX),
-	ColorName VARCHAR(MAX),
-	UnitPackage VARCHAR(MAX),
-	OuterPackage VARCHAR(MAX),
-	Size VARCHAR(MAX)
+	StockItemName NVARCHAR(MAX),
+	ColorName NVARCHAR(MAX),
+	UnitPackage NVARCHAR(MAX),
+	OuterPackage NVARCHAR(MAX),
+	Size NVARCHAR(MAX)
 )
 
 
 CREATE TABLE [raw].dimSuppliers (
 	SupplierID INT,
-	SupplierName VARCHAR(MAX),
-	SupplierCategoryName VARCHAR(MAX),
+	SupplierName NVARCHAR(MAX),
+	SupplierCategoryName NVARCHAR(MAX),
 	PaymentDays INT
 )
 
@@ -95,9 +96,9 @@ CREATE TABLE [raw].factPurchase (
 
 CREATE TABLE [clean].dimCustomers (
 	CustomerID INT,
-	CustomerName VARCHAR(50),
-	ParentCompany VARCHAR(30),
-	CustomerCategory VARCHAR(20)
+	CustomerName NVARCHAR(50),
+	ParentCompany NVARCHAR(30),
+	CustomerCategory NVARCHAR(20)
 )
 
 
@@ -120,37 +121,37 @@ CREATE TABLE [clean].factSale (
 
 CREATE TABLE [clean].dimEmployee (
 	PersonID INT,
-	FullName VARCHAR(24),
+	FullName NVARCHAR(24),
 	IsSalesPerson BIT,
 )
 
 
 CREATE TABLE [clean].dimLocation (
 	LocationID INT,
-	CityName VARCHAR(40),
-	StateProvinceName VARCHAR(30),
-	SalesTerritory VARCHAR(15),
-	CountryName VARCHAR(15),
-	Continent VARCHAR(15),
-	Region VARCHAR(10),
-	Subregion VARCHAR(20)
+	CityName NVARCHAR(40),
+	StateProvinceName NVARCHAR(30),
+	SalesTerritory NVARCHAR(15),
+	CountryName NVARCHAR(15),
+	Continent NVARCHAR(15),
+	Region NVARCHAR(10),
+	Subregion NVARCHAR(20)
 )
 
 
 CREATE TABLE [clean].dimStockItem (
 	StockItemID INT,
-	StockItemName VARCHAR(90),
-	ColorName VARCHAR(15),
-	UnitPackage VARCHAR(10),
-	OuterPackage VARCHAR(10),
-	Size VARCHAR(15)
+	StockItemName NVARCHAR(90),
+	ColorName NVARCHAR(15),
+	UnitPackage NVARCHAR(10),
+	OuterPackage NVARCHAR(10),
+	Size NVARCHAR(15)
 )
 
 
 CREATE TABLE [clean].dimSuppliers (
 	SupplierID INT,
-	SupplierName VARCHAR(30),
-	SupplierCategoryName VARCHAR(30),
+	SupplierName NVARCHAR(30),
+	SupplierCategoryName NVARCHAR(30),
 	PaymentDays INT
 )
 
@@ -175,7 +176,6 @@ CREATE TABLE [clean].factPurchase (
 
 CREATE TABLE EtlLog (
 	LogID INT IDENTITY(1,1),
-	TableName VARCHAR(50),
 	LastExtract DATETIME
 )
 

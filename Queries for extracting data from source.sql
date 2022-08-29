@@ -28,7 +28,7 @@ SELECT
 	I.InvoiceID,
 	I.CustomerID,
 	I.SalespersonPersonID,
-	C.DeliveryCityID 'LocationID',
+	C.DeliveryCityID [LocationID],
 	I.InvoiceDate,
 	O.OrderDate,
 	O.ExpectedDeliveryDate,
@@ -62,7 +62,7 @@ WHERE IsEmployee = 1
 	Querry for extracting location data -> dimLocation
 ####*/
 SELECT 
-	C.CityID 'LocationID',
+	C.CityID [LocationID],
 	C.CityName,
 	SP.StateProvinceName,
 	SP.SalesTerritory,
@@ -85,8 +85,8 @@ SELECT
 	SI.StockItemID,
 	SI.StockItemName,
 	C.ColorName,
-	PT.PackageTypeName 'UnitPackage',
-	PTO.PackageTypeName 'OuterPackage',
+	PT.PackageTypeName [UnitPackage],
+	PTO.PackageTypeName [OuterPackage],
 	SI.Size
 FROM Warehouse.StockItems SI
 LEFT JOIN Warehouse.Colors C
@@ -116,13 +116,13 @@ JOIN Purchasing.SupplierCategories SC
 ####*/
 
 SELECT
-	ST.SupplierTransactionID 'PurchaseID',
+	ST.SupplierTransactionID [PurchaseID],
 	ST.SupplierID,
-	PO.OrderDate 'PurchaseDate',
+	PO.OrderDate [PurchaseDate],
 	PO.ExpectedDeliveryDate,
 	POL.StockItemID,
-	POL.OrderedOuters 'QuantityOrdered',
-	POL.ReceivedOuters 'QuantityReceived',
+	POL.OrderedOuters [QuantityOrdered],
+	POL.ReceivedOuters [QuantityReceived],
 	ST.AmountExcludingTax,
 	ST.TaxAmount,
 	ExpectedUnitPricePerOuter,
@@ -132,6 +132,7 @@ JOIN Purchasing.PurchaseOrders PO
 	ON ST.PurchaseOrderID = PO.PurchaseOrderID
 JOIN Purchasing.PurchaseOrderLines POL
 	ON PO.PurchaseOrderID = POL.PurchaseOrderID
+
 
 
 
@@ -158,7 +159,6 @@ JOIN Sales.Customers PC
 JOIN Sales.CustomerCategories CC
 	ON MC.CustomerCategoryID = CC.CustomerCategoryID
 GO  
-
 
 /*####
 	Querry for extracting sale data -> factSale
