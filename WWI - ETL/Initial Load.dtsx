@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{483FD249-AFFB-47C3-B326-B83D8A7F0BC8}">
+  DTS:VersionBuild="46"
+  DTS:VersionGUID="{5E8480D5-986E-4460-A158-0C16D92C143B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -366,6 +366,10 @@ JOIN Sales.CustomerCategories CC
                       refId="Package\Load dimCustomers\OLE TRG dimCustomers.Inputs[OLE DB Destination Input].ExternalColumns[CustomerCategory]"
                       dataType="nText"
                       name="CustomerCategory" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimCustomers\OLE TRG dimCustomers.Inputs[OLE DB Destination Input].ExternalColumns[IsDeleted]"
+                      dataType="bool"
+                      name="IsDeleted" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -525,6 +529,10 @@ JOIN Sales.CustomerCategories CC
                       refId="Package\Load dimEmployee\OLE DST dimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[IsSalesPerson]"
                       dataType="bool"
                       name="IsSalesPerson" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimEmployee\OLE DST dimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[IsDeleted]"
+                      dataType="bool"
+                      name="IsDeleted" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -890,6 +898,10 @@ WHERE IsEmployee = 1</property>
                       refId="Package\Load dimLocation\OLE DST dimLocation.Inputs[OLE DB Destination Input].ExternalColumns[Subregion]"
                       dataType="nText"
                       name="Subregion" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimLocation\OLE DST dimLocation.Inputs[OLE DB Destination Input].ExternalColumns[IsDeleted]"
+                      dataType="bool"
+                      name="IsDeleted" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1349,6 +1361,10 @@ JOIN Application.Countries CO
                       refId="Package\Load dimStockItem\OLE DST dimStockItems.Inputs[OLE DB Destination Input].ExternalColumns[Size]"
                       dataType="nText"
                       name="Size" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimStockItem\OLE DST dimStockItems.Inputs[OLE DB Destination Input].ExternalColumns[IsDeleted]"
+                      dataType="bool"
+                      name="IsDeleted" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1743,6 +1759,10 @@ JOIN Warehouse.PackageTypes PT
                       refId="Package\Load dimSuppliers\OLE DST dimSuppliers.Inputs[OLE DB Destination Input].ExternalColumns[PaymentDays]"
                       dataType="i4"
                       name="PaymentDays" />
+                    <externalMetadataColumn
+                      refId="Package\Load dimSuppliers\OLE DST dimSuppliers.Inputs[OLE DB Destination Input].ExternalColumns[IsDeleted]"
+                      dataType="bool"
+                      name="IsDeleted" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2166,6 +2186,10 @@ JOIN Purchasing.SupplierCategories SC
                       refId="Package\Load factPurchase\OLE DST factPurchase.Inputs[OLE DB Destination Input].ExternalColumns[IsOrderFinalized]"
                       dataType="bool"
                       name="IsOrderFinalized" />
+                    <externalMetadataColumn
+                      refId="Package\Load factPurchase\OLE DST factPurchase.Inputs[OLE DB Destination Input].ExternalColumns[IsDeleted]"
+                      dataType="bool"
+                      name="IsDeleted" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2757,6 +2781,10 @@ JOIN Purchasing.PurchaseOrderLines POL
                       name="LineProfit"
                       precision="16"
                       scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load factSale\OLE DST factSale.Inputs[OLE DB Destination Input].ExternalColumns[IsDeleted]"
+                      dataType="bool"
+                      name="IsDeleted" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -3260,9 +3288,13 @@ JOIN Sales.Customers C
           Id="Package\Load dimLocation"
           TopLeft="567.499977449577,137.800001095136" />
         <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Load dimStockItem"
+          TopLeft="793.3333018091,137.133333615727" />
+        <NodeLayout
           Size="164.8,41.6"
           Id="Package\Load dimSuppliers"
-          TopLeft="792.499968508881,264.733333822357" />
+          TopLeft="791.666635208661,264.733333822357" />
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\Load factPurchase"
@@ -3272,9 +3304,9 @@ JOIN Sales.Customers C
           Id="Package\Load factSale"
           TopLeft="321.666653884782,261.666665516429" />
         <NodeLayout
-          Size="167.2,41.6"
-          Id="Package\Load dimStockItem"
-          TopLeft="793.3333018091,137.133333615727" />
+          Size="200,41.6"
+          Id="Package\SQL Insert LastExtractLog"
+          TopLeft="84.9999966224036,269.533335475392" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="247.033330319988,159.46666776869">
@@ -3343,7 +3375,7 @@ JOIN Sales.Customers C
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="875.916635158991,178.733333615727">
+          TopLeft="875.499968508881,178.733333615727">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3365,18 +3397,18 @@ JOIN Sales.Customers C
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="792.499968508881,284.333333409098">
+          TopLeft="791.666635208661,284.333333409098">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-66.0333241608409,0"
+              EndConnector="-65.1999908606211,0"
               Start="0,0"
-              End="-58.5333241608409,0">
+              End="-57.6999908606211,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-58.5333241608409,0" />
+                    End="-57.6999908606211,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3407,10 +3439,6 @@ JOIN Sales.Customers C
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="200,41.6"
-          Id="Package\SQL Insert LastExtractLog"
-          TopLeft="84.9999966224036,269.533335475392" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
           TopLeft="321.666653884782,286.400000495911">
@@ -3572,13 +3600,13 @@ JOIN Sales.Customers C
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Load dimLocation\OLE SRC Cities"
-          TopLeft="418,287" />
-        <NodeLayout
           Size="181.6,41.6"
           Id="Package\Load dimLocation\OLE DST dimLocation"
           TopLeft="523,459" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Load dimLocation\OLE SRC Cities"
+          TopLeft="418,287" />
         <EdgeLayout
           Id="Package\Load dimLocation.Paths[OLE DB Source Output]"
           TopLeft="494.4,328.6">
@@ -3631,219 +3659,6 @@ JOIN Sales.Customers C
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load dimLocation\OLE SRC Cities">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Load dimSuppliers">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\Load dimSuppliers\OLE DST dimSuppliers"
-          TopLeft="522,458" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Load dimSuppliers\OLE SRC Suppliers"
-          TopLeft="418,287" />
-        <EdgeLayout
-          Id="Package\Load dimSuppliers.Paths[OLE DB Source Output]"
-          TopLeft="503.2,328.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="111.6,129.4"
-              Start="0,0"
-              End="111.6,121.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,60.7" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,60.7"
-                    Point2="0,64.7"
-                    Point3="4,64.7" />
-                  <mssgle:LineSegment
-                    End="107.6,64.7" />
-                  <mssgle:CubicBezierSegment
-                    Point1="107.6,64.7"
-                    Point2="111.6,64.7"
-                    Point3="111.6,68.7" />
-                  <mssgle:LineSegment
-                    End="111.6,121.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load dimSuppliers\OLE DST dimSuppliers">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load dimSuppliers\OLE SRC Suppliers">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Load factPurchase">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="186.4,41.6"
-          Id="Package\Load factPurchase\OLE DST factPurchase"
-          TopLeft="523,459" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Load factPurchase\OLE SRC Purchase"
-          TopLeft="418,287" />
-        <EdgeLayout
-          Id="Package\Load factPurchase.Paths[OLE DB Source Output]"
-          TopLeft="503.2,328.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="113,130.4"
-              Start="0,0"
-              End="113,122.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,61.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,61.2"
-                    Point2="0,65.2"
-                    Point3="4,65.2" />
-                  <mssgle:LineSegment
-                    End="109,65.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="109,65.2"
-                    Point2="113,65.2"
-                    Point3="113,69.2" />
-                  <mssgle:LineSegment
-                    End="113,122.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load factPurchase\OLE DST factPurchase">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load factPurchase\OLE SRC Purchase">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Load factSale">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="163.2,41.6"
-          Id="Package\Load factSale\OLE DST factSale"
-          TopLeft="523,459" />
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Load factSale\OLE SRC Sales"
-          TopLeft="418,287" />
-        <EdgeLayout
-          Id="Package\Load factSale.Paths[OLE DB Source Output]"
-          TopLeft="494.4,328.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="110.2,130.4"
-              Start="0,0"
-              End="110.2,122.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,61.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,61.2"
-                    Point2="0,65.2"
-                    Point3="4,65.2" />
-                  <mssgle:LineSegment
-                    End="106.2,65.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="106.2,65.2"
-                    Point2="110.2,65.2"
-                    Point3="110.2,69.2" />
-                  <mssgle:LineSegment
-                    End="110.2,122.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load factSale\OLE DST factSale">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load factSale\OLE SRC Sales">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3915,6 +3730,219 @@ JOIN Sales.Customers C
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load dimStockItem\OLE SRC StockItems">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load dimSuppliers">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Load dimSuppliers\OLE SRC Suppliers"
+          TopLeft="418,287" />
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\Load dimSuppliers\OLE DST dimSuppliers"
+          TopLeft="522,458" />
+        <EdgeLayout
+          Id="Package\Load dimSuppliers.Paths[OLE DB Source Output]"
+          TopLeft="503.2,328.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111.6,129.4"
+              Start="0,0"
+              End="111.6,121.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,60.7"
+                    Point2="0,64.7"
+                    Point3="4,64.7" />
+                  <mssgle:LineSegment
+                    End="107.6,64.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="107.6,64.7"
+                    Point2="111.6,64.7"
+                    Point3="111.6,68.7" />
+                  <mssgle:LineSegment
+                    End="111.6,121.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load dimSuppliers\OLE DST dimSuppliers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load dimSuppliers\OLE SRC Suppliers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load factPurchase">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Load factPurchase\OLE SRC Purchase"
+          TopLeft="418,287" />
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="Package\Load factPurchase\OLE DST factPurchase"
+          TopLeft="523,459" />
+        <EdgeLayout
+          Id="Package\Load factPurchase.Paths[OLE DB Source Output]"
+          TopLeft="503.2,328.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="113,130.4"
+              Start="0,0"
+              End="113,122.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61.2"
+                    Point2="0,65.2"
+                    Point3="4,65.2" />
+                  <mssgle:LineSegment
+                    End="109,65.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="109,65.2"
+                    Point2="113,65.2"
+                    Point3="113,69.2" />
+                  <mssgle:LineSegment
+                    End="113,122.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load factPurchase\OLE DST factPurchase">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load factPurchase\OLE SRC Purchase">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load factSale">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Load factSale\OLE SRC Sales"
+          TopLeft="418,287" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\Load factSale\OLE DST factSale"
+          TopLeft="523,459" />
+        <EdgeLayout
+          Id="Package\Load factSale.Paths[OLE DB Source Output]"
+          TopLeft="494.4,328.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="110.2,130.4"
+              Start="0,0"
+              End="110.2,122.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61.2"
+                    Point2="0,65.2"
+                    Point3="4,65.2" />
+                  <mssgle:LineSegment
+                    End="106.2,65.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="106.2,65.2"
+                    Point2="110.2,65.2"
+                    Point3="110.2,69.2" />
+                  <mssgle:LineSegment
+                    End="110.2,122.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load factSale\OLE DST factSale">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load factSale\OLE SRC Sales">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
