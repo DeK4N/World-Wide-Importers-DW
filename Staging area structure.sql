@@ -19,7 +19,8 @@ CREATE TABLE [raw].dimCustomers (
 	CustomerID INT,
 	CustomerName NVARCHAR(MAX),
 	ParentCompany NVARCHAR(MAX),
-	CustomerCategory NVARCHAR(MAX)
+	CustomerCategory NVARCHAR(MAX),
+	IsDeleted BIT DEFAULT 0
 )
 
 
@@ -36,7 +37,8 @@ CREATE TABLE [raw].factSale (
 	Quantity INT,
 	UnitPrice DECIMAL(16,2),
 	TaxAmount DECIMAL(16,2),
-	LineProfit DECIMAL(16,2)
+	LineProfit DECIMAL(16,2),
+	IsDeleted BIT DEFAULT 0
 )
 
 
@@ -44,6 +46,7 @@ CREATE TABLE [raw].dimEmployee (
 	PersonID INT,
 	FullName NVARCHAR(MAX),
 	IsSalesPerson BIT,
+	IsDeleted BIT DEFAULT 0
 )
 
 
@@ -55,7 +58,8 @@ CREATE TABLE [raw].dimLocation (
 	CountryName NVARCHAR(MAX),
 	Continent NVARCHAR(MAX),
 	Region NVARCHAR(MAX),
-	Subregion NVARCHAR(MAX)
+	Subregion NVARCHAR(MAX),
+	IsDeleted BIT DEFAULT 0
 )
 
 
@@ -65,7 +69,8 @@ CREATE TABLE [raw].dimStockItem (
 	ColorName NVARCHAR(MAX),
 	UnitPackage NVARCHAR(MAX),
 	OuterPackage NVARCHAR(MAX),
-	Size NVARCHAR(MAX)
+	Size NVARCHAR(MAX),
+	IsDeleted BIT DEFAULT 0
 )
 
 
@@ -73,7 +78,8 @@ CREATE TABLE [raw].dimSuppliers (
 	SupplierID INT,
 	SupplierName NVARCHAR(MAX),
 	SupplierCategoryName NVARCHAR(MAX),
-	PaymentDays INT
+	PaymentDays INT,
+	IsDeleted BIT DEFAULT 0
 )
 
 CREATE TABLE [raw].factPurchase (
@@ -87,7 +93,8 @@ CREATE TABLE [raw].factPurchase (
 	AmountExcludingTax DECIMAL(16,2),
 	TaxAmount DECIMAL(16,2),
 	ExpectedUnitPricePerOuter DECIMAL(16,2),
-	IsOrderFinalized BIT
+	IsOrderFinalized BIT,
+	IsDeleted BIT DEFAULT 0
 )
 
 /*####
@@ -98,7 +105,8 @@ CREATE TABLE [clean].dimCustomers (
 	CustomerID INT,
 	CustomerName NVARCHAR(50),
 	ParentCompany NVARCHAR(30),
-	CustomerCategory NVARCHAR(20)
+	CustomerCategory NVARCHAR(20),
+	IsDeleted BIT DEFAULT 0
 )
 
 
@@ -115,7 +123,8 @@ CREATE TABLE [clean].factSale (
 	Quantity INT,
 	UnitPrice DECIMAL(16,2),
 	TaxAmount DECIMAL(16,2),
-	LineProfit DECIMAL(16,2)
+	LineProfit DECIMAL(16,2),
+	IsDeleted BIT DEFAULT 0
 )
 
 
@@ -123,6 +132,7 @@ CREATE TABLE [clean].dimEmployee (
 	PersonID INT,
 	FullName NVARCHAR(24),
 	IsSalesPerson BIT,
+	IsDeleted BIT DEFAULT 0
 )
 
 
@@ -134,7 +144,8 @@ CREATE TABLE [clean].dimLocation (
 	CountryName NVARCHAR(15),
 	Continent NVARCHAR(15),
 	Region NVARCHAR(10),
-	Subregion NVARCHAR(20)
+	Subregion NVARCHAR(20),
+	IsDeleted BIT DEFAULT 0
 )
 
 
@@ -144,7 +155,8 @@ CREATE TABLE [clean].dimStockItem (
 	ColorName NVARCHAR(15),
 	UnitPackage NVARCHAR(10),
 	OuterPackage NVARCHAR(10),
-	Size NVARCHAR(15)
+	Size NVARCHAR(15),
+	IsDeleted BIT DEFAULT 0
 )
 
 
@@ -152,7 +164,8 @@ CREATE TABLE [clean].dimSuppliers (
 	SupplierID INT,
 	SupplierName NVARCHAR(30),
 	SupplierCategoryName NVARCHAR(30),
-	PaymentDays INT
+	PaymentDays INT,
+	IsDeleted BIT DEFAULT 0
 )
 
 CREATE TABLE [clean].factPurchase (
@@ -166,7 +179,8 @@ CREATE TABLE [clean].factPurchase (
 	AmountExcludingTax DECIMAL(16,2),
 	TaxAmount DECIMAL(16,2),
 	ExpectedUnitPricePerOuter DECIMAL(16,2),
-	IsOrderFinalized BIT
+	IsOrderFinalized BIT,
+	IsDeleted BIT DEFAULT 0
 )
 
 
@@ -176,7 +190,7 @@ CREATE TABLE [clean].factPurchase (
 
 CREATE TABLE EtlLog (
 	LogID INT IDENTITY(1,1),
-	LastExtract DATETIME
+	LastExtract DATETIME,
 )
 
 
