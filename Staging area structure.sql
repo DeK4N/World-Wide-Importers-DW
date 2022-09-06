@@ -16,7 +16,8 @@ CREATE SCHEMA [clean]
 GO
 
 CREATE TABLE [raw].dimCustomers (
-	CustomerID INT,
+	CustomerID INT IDENTITY(1,1),
+	CustomerBK INT,
 	CustomerName NVARCHAR(MAX),
 	ParentCompany NVARCHAR(MAX),
 	CustomerCategory NVARCHAR(MAX),
@@ -25,7 +26,8 @@ CREATE TABLE [raw].dimCustomers (
 
 
 CREATE TABLE [raw].factSale (
-	InvoiceID INT,
+	InvoiceID INT IDENTITY(1,1),
+	InvoiceBK INT,
 	CustomerID INT,
 	SalespersonPersonID INT,
 	LocationID INT,
@@ -43,7 +45,8 @@ CREATE TABLE [raw].factSale (
 
 
 CREATE TABLE [raw].dimEmployee (
-	PersonID INT,
+	PersonID INT IDENTITY(1,1),
+	PersonBK INT,
 	FullName NVARCHAR(MAX),
 	IsSalesPerson BIT,
 	IsDeleted BIT DEFAULT 0
@@ -51,7 +54,8 @@ CREATE TABLE [raw].dimEmployee (
 
 
 CREATE TABLE [raw].dimLocation (
-	LocationID INT,
+	LocationID INT  IDENTITY(1,1),
+	LocationBK INT,
 	CityName NVARCHAR(MAX),
 	StateProvinceName NVARCHAR(MAX),
 	SalesTerritory NVARCHAR(MAX),
@@ -64,7 +68,8 @@ CREATE TABLE [raw].dimLocation (
 
 
 CREATE TABLE [raw].dimStockItem (
-	StockItemID INT,
+	StockItemID INT IDENTITY(1,1),
+	StockItemBK INT,
 	StockItemName NVARCHAR(MAX),
 	ColorName NVARCHAR(MAX),
 	UnitPackage NVARCHAR(MAX),
@@ -75,7 +80,8 @@ CREATE TABLE [raw].dimStockItem (
 
 
 CREATE TABLE [raw].dimSuppliers (
-	SupplierID INT,
+	SupplierID INT IDENTITY(1,1),
+	SupplierBK INT,
 	SupplierName NVARCHAR(MAX),
 	SupplierCategoryName NVARCHAR(MAX),
 	PaymentDays INT,
@@ -83,7 +89,8 @@ CREATE TABLE [raw].dimSuppliers (
 )
 
 CREATE TABLE [raw].factPurchase (
-	PurchaseID INT,
+	PurchaseID INT IDENTITY(1,1),
+	PurchaseBK INT,
 	SupplierID INT,
 	StockItemID INT,
 	OrderDate DATE,
@@ -102,16 +109,18 @@ CREATE TABLE [raw].factPurchase (
 ####*/
 
 CREATE TABLE [clean].dimCustomers (
-	CustomerID INT,
-	CustomerName NVARCHAR(50),
-	ParentCompany NVARCHAR(30),
-	CustomerCategory NVARCHAR(20),
+	CustomerID INT IDENTITY(1,1),
+	CustomerBK INT,
+	CustomerName NVARCHAR(MAX),
+	ParentCompany NVARCHAR(MAX),
+	CustomerCategory NVARCHAR(MAX),
 	IsDeleted BIT DEFAULT 0
 )
 
 
 CREATE TABLE [clean].factSale (
-	InvoiceID INT,
+	InvoiceID INT IDENTITY(1,1),
+	InvoiceBK INT,
 	CustomerID INT,
 	SalespersonPersonID INT,
 	LocationID INT,
@@ -129,47 +138,52 @@ CREATE TABLE [clean].factSale (
 
 
 CREATE TABLE [clean].dimEmployee (
-	PersonID INT,
-	FullName NVARCHAR(24),
+	PersonID INT IDENTITY(1,1),
+	PersonBK INT,
+	FullName NVARCHAR(MAX),
 	IsSalesPerson BIT,
 	IsDeleted BIT DEFAULT 0
 )
 
 
 CREATE TABLE [clean].dimLocation (
-	LocationID INT,
-	CityName NVARCHAR(40),
-	StateProvinceName NVARCHAR(30),
-	SalesTerritory NVARCHAR(15),
-	CountryName NVARCHAR(15),
-	Continent NVARCHAR(15),
-	Region NVARCHAR(10),
-	Subregion NVARCHAR(20),
+	LocationID INT  IDENTITY(1,1),
+	LocationBK INT,
+	CityName NVARCHAR(MAX),
+	StateProvinceName NVARCHAR(MAX),
+	SalesTerritory NVARCHAR(MAX),
+	CountryName NVARCHAR(MAX),
+	Continent NVARCHAR(MAX),
+	Region NVARCHAR(MAX),
+	Subregion NVARCHAR(MAX),
 	IsDeleted BIT DEFAULT 0
 )
 
 
 CREATE TABLE [clean].dimStockItem (
-	StockItemID INT,
-	StockItemName NVARCHAR(90),
-	ColorName NVARCHAR(15),
-	UnitPackage NVARCHAR(10),
-	OuterPackage NVARCHAR(10),
-	Size NVARCHAR(15),
+	StockItemID INT IDENTITY(1,1),
+	StockItemBK INT,
+	StockItemName NVARCHAR(MAX),
+	ColorName NVARCHAR(MAX),
+	UnitPackage NVARCHAR(MAX),
+	OuterPackage NVARCHAR(MAX),
+	Size NVARCHAR(MAX),
 	IsDeleted BIT DEFAULT 0
 )
 
 
 CREATE TABLE [clean].dimSuppliers (
-	SupplierID INT,
-	SupplierName NVARCHAR(30),
-	SupplierCategoryName NVARCHAR(30),
+	SupplierID INT IDENTITY(1,1),
+	SupplierBK INT,
+	SupplierName NVARCHAR(MAX),
+	SupplierCategoryName NVARCHAR(MAX),
 	PaymentDays INT,
 	IsDeleted BIT DEFAULT 0
 )
 
 CREATE TABLE [clean].factPurchase (
-	PurchaseID INT,
+	PurchaseID INT IDENTITY(1,1),
+	PurchaseBK INT,
 	SupplierID INT,
 	StockItemID INT,
 	OrderDate DATE,
@@ -194,3 +208,4 @@ CREATE TABLE EtlLog (
 )
 
 
+DROP DATABASE STAG_WWI
