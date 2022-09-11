@@ -108,6 +108,11 @@ CREATE TABLE [raw].factPurchase (
 	/*####  STAGING AREA STRUCTURE - SILVER  ####*/
 ####*/
 
+/*
+
+NOT ACTIVE FOR NOW.
+
+
 CREATE TABLE [clean].dimCustomers (
 	CustomerID INT IDENTITY(1,1),
 	CustomerBK INT,
@@ -195,7 +200,7 @@ CREATE TABLE [clean].factPurchase (
 	IsOrderFinalized BIT,
 	IsDeleted BIT DEFAULT 0
 )
-
+/*
 
 /*####
 	Log table with date of last etl run
