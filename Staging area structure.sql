@@ -159,7 +159,6 @@ CREATE TABLE [clean].dimLocation (
 	IsDeleted BIT DEFAULT 0
 )
 
-
 CREATE TABLE [clean].dimStockItem (
 	StockItemID INT IDENTITY(1,1),
 	StockItemBK INT,
